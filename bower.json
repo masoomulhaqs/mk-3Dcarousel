@@ -1,0 +1,18 @@
+{
+  "name": "MK 3D Carousel",
+  "homepage": "https://github.com/masoomulhaqs/mk-3Dcarousel",
+  "authors": [
+    "admin <masoomulhaqs@gmail.com>"
+  ],
+  "description": "A 3D image Carousel",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
