@@ -1,2 +1,2 @@
 # mk-3Dcarousel
-An attempt to create 3D slider using JQUERY.
+This is a create 3D Image Carousel using JQUERY.
