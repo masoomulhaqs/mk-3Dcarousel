@@ -40,3 +40,6 @@ bower_components/
 .DS_Store/*
 **/.DS_Store
 **/.DS_Store/*
+
+# Ignoring all Hidden files
+**/.*
