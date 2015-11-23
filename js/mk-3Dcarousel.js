@@ -1,24 +1,23 @@
 (function ( $ ) {
- 
-    // Listen for orientation changes
-	window.addEventListener("orientationchange", function() {
-		// Announce the new orientation number
-		console.log(window.orientation);
-	}, false);
+
+
 	$.fn.mkCarousel = function(settings){
 		var target = this.selector+'>img', 
 			$target = $(this.selector+'>img'), 
-			leftMargin =0, slideIt, getIndex, offset = 0, activeIndex = 0;
+			leftMargin =0,
+			slideIt = null, 
+			getIndex = null, 
+			offset = 0, 
+			activeIndex = 0;
 		var defaults = $.extend({
 			responsive: true,
 			breakpoint: 768,
 			offset: 100,
 			mobileOffset: 40,
-			leftClass: 'img-left',
-			rightClass: 'img-right',
+			leftClass: 'image-left',
+			rightClass: 'image-right',
 			activeClass: 'active'
 		}, settings);
-		console.log(defaults);
 		getIndex = function(){
 			for(i=0; i<=$target.length;i++){
 				if($target.eq(i).hasClass(defaults.activeClass)){
@@ -28,6 +27,9 @@
 		};
 		slideIt = function(){
 			offset = ($(window).outerWidth()>=defaults.breakpoint)?defaults.offset:defaults.mobileOffset;
+			$(window).resize(function(){
+				offset = ($(this).outerWidth()>=defaults.breakpoint)?defaults.offset:defaults.mobileOffset;
+			});
 			leftMargin = 0;
 			activeIndex = getIndex();
 			$target.removeClass(defaults.leftClass).css({
@@ -59,10 +61,7 @@
 			slideIt();
 		}).load(function(){
 			slideIt();
-		})
-		window.orientationchange = function(){
-			console.log('changed');
-		}
+		});
 		$target.click(function(){
 			$target.removeClass(defaults.activeClass);
 			$(this).addClass(defaults.activeClass);
