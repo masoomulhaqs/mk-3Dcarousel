@@ -62,6 +62,11 @@
 		}).load(function(){
 			slideIt();
 		});
+		if("onorientationchange" in window) {
+			window.addEventListener("orientationchange", function() {
+				slideIt();
+			}, false);
+		}
 		$target.click(function(){
 			$target.removeClass(defaults.activeClass);
 			$(this).addClass(defaults.activeClass);
