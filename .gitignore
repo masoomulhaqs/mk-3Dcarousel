@@ -33,7 +33,7 @@ build/Release
 node_modules
 
 # Bower components
-bower_components/
+# bower_components/
 
 # Other Mac Directories
 .DS_Store
