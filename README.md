@@ -36,6 +36,7 @@ $(function(){
 
 #### Live Examples
 * [mk-3Dcarousel page](http://masoomulhaqs.github.io/mk-3Dcarousel/)
+* [http://www.masoomulhaq.in/](http://www.masoomulhaq.in/)
 
 #### Support
 In all major browsers, partial support in other browsers
