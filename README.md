@@ -13,10 +13,10 @@ Include the following:
 
 #### HTML:
 ```
-  <div id="mkCarousel">
-    <img class="active" src="images/carousel/001.jpg" alt="">
-    ... image list goes here
-  </div>
+<div id="mkCarousel">
+	<img class="active" src="images/carousel/001.jpg" alt="">
+	... image list goes here
+</div>
 ```
 
 #### JS:
@@ -26,6 +26,10 @@ $(function(){
 });
 ```
 #### Properties
-
+	* responsive: boolean | default = true
+	* breakpoint: int | default = 768
+	* offset: int | default = 100
+	* mobileOffset: int | default = 50
+	* controlNavs: boolean | default = true
 #### Support
 In all major browsers, partial support in other browsers
