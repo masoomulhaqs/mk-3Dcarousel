@@ -1,13 +1,31 @@
 # mk-3Dcarousel
 This is a create 3D Image Carousel using JQUERY, CSS3.
 
-#### Dependencies
-JQuery
+#### Required
+* JQuery
+* CSS3 supported browsers
 
-#### Steps to see the magic
-  Include `JQuery`
-  Include `mk-3Dcarousel.js` 
-  Include `mk-3Dcarousel.css`
+#### Steps to use
+Include the following:
+  * `JQuery`
+  * `mk-3Dcarousel.js` 
+  * `mk-3Dcarousel.css`
+
+#### HTML:
+```
+  <div id="mkCarousel">
+    <img class="active" src="images/carousel/001.jpg" alt="">
+    ... image list goes here
+  </div>
+```
+
+#### JS:
+```
+$(function(){
+	$('#mkCarousel').mkCarousel();
+});
+```
+#### Properties
 
 #### Support
-In all major browsers, partial support in old IE browsers
+In all major browsers, partial support in other browsers
