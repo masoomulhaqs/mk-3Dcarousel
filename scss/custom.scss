@@ -70,5 +70,51 @@ h1{
 			@include transform(perspective(200px) rotateY(50deg));
 		}
 	}
+	.mk-nav-controls{
+		position: absolute;
+		z-index: 999;
+		top: 0;
+		left: 50%;
+		margin-left: -100px;
+		padding: 0;
+		width: 200px;
+		font-size: 12px;
+		text-align: center;
+		li{
+			display: inline-block;
+			a{
+				text-decoration: none;
+				text-transform: uppercase;
+				color: #fff;
+				display: inline-block;
+				padding: 5px;
+				line-height: 1;
+				@include transition(all 0.3s ease);
+				&:hover, &:focus, &:active{
+					background: #fff;
+					color: #333;
+				}
+			}
+		}
+	}
 }
 
+.text-center{
+	text-align: center;
+}
+
+a.btn-center{
+	background: #FFA17C;
+	color: #333;
+	text-decoration: none;
+	display: inline-block;
+	padding: 7px 10px;
+	line-height: 1;
+	font-style: 13px;
+	margin: 10px 0;
+	box-shadow: 0 2px 3px #333;
+	@include transition(all 0.3s ease);
+	&:hover, &:focus, &:active{
+		background: #fff;
+	}
+}

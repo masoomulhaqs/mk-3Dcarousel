@@ -2,22 +2,40 @@
 
 
 	$.fn.mkCarousel = function(settings){
-		var target = this.selector+'>img', 
-			$target = $(this.selector+'>img'), 
+		var selector = this.selector,
+			target = this.selector+'>img',
+			$target = $(target), 
+			controlSelector = '.mk-nav-controls>li>a',
+			$controlSelector = $(controlSelector),
 			leftMargin =0,
 			slideIt = null, 
-			getIndex = null, 
+			getIndex = null,
+			init= null,
 			offset = 0, 
-			activeIndex = 0;
-		var defaults = $.extend({
-			responsive: true,
-			breakpoint: 768,
-			offset: 100,
-			mobileOffset: 40,
-			leftClass: 'image-left',
-			rightClass: 'image-right',
-			activeClass: 'active'
-		}, settings);
+			activeIndex = 0,
+			defaults = {},
+			slideCount = 0;
+		init = function(){
+			defaults = $.extend({
+				responsive: true,
+				breakpoint: 768,
+				offset: 100,
+				mobileOffset: 50,
+				leftClass: 'image-left',
+				rightClass: 'image-right',
+				activeClass: 'active',
+				controlNavs: true
+			}, settings);
+			console.log(defaults);
+			if(defaults.controlNavs){
+				$(selector).prepend('\
+					<ul class="mk-nav-controls">\
+					    <li><a href="#" data-mk-direction="prev">Prev</a></li>\
+					    <li><a href="#" data-mk-direction="next">Next</a></li>\
+					</ul>\
+				');
+			}
+		};
 		getIndex = function(){
 			for(i=0; i<=$target.length;i++){
 				if($target.eq(i).hasClass(defaults.activeClass)){
@@ -25,13 +43,10 @@
 				}
 			}
 		};
-		slideIt = function(){
+		slideIt = function(thisIndex){
 			offset = ($(window).outerWidth()>=defaults.breakpoint)?defaults.offset:defaults.mobileOffset;
-			$(window).resize(function(){
-				offset = ($(this).outerWidth()>=defaults.breakpoint)?defaults.offset:defaults.mobileOffset;
-			});
 			leftMargin = 0;
-			activeIndex = getIndex();
+			activeIndex = thisIndex || getIndex();
 			$target.removeClass(defaults.leftClass).css({
 				'marginLeft': '0px',
 				'marginRight': '0px'
@@ -60,6 +75,7 @@
 		$(window).resize(function(){
 			slideIt();
 		}).load(function(){
+			init();
 			slideIt();
 		});
 		if("onorientationchange" in window) {
@@ -71,6 +87,19 @@
 			$target.removeClass(defaults.activeClass);
 			$(this).addClass(defaults.activeClass);
 			slideIt();
+		});
+		$(selector).on('click', controlSelector,  function(event){
+			event.preventDefault();
+			slideCount = getIndex();
+			if($(this).data('mk-direction') == 'prev'){
+				console.log('yep')
+				slideCount = slideCount>0?slideCount-1:slideCount;
+			}else{
+				slideCount = slideCount<$target.length-1?slideCount+1:slideCount;
+			}
+			$target.removeClass(defaults.activeClass);
+			$target.eq(slideCount).addClass(defaults.activeClass);
+			slideIt(slideCount);
 		});
 	}
 
