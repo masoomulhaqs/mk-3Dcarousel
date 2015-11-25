@@ -40,3 +40,6 @@ $(function(){
 
 #### Support
 In all major browsers, partial support in other browsers
+
+#### Note
+Images are taken from `Google`
