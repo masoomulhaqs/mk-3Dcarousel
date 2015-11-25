@@ -35,7 +35,7 @@ $(function(){
 	* controlNavs: boolean | default = true
 
 #### Live Examples
-	* [mk-3Dcarousel page](http://masoomulhaqs.github.io/mk-3Dcarousel/)
+* [mk-3Dcarousel page](http://masoomulhaqs.github.io/mk-3Dcarousel/)
 
 #### Support
 In all major browsers, partial support in other browsers
