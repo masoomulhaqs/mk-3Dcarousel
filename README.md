@@ -15,6 +15,7 @@ Include the following:
 ```
 <div id="mkCarousel">
 	<img class="active" src="images/carousel/001.jpg" alt="">
+	<img src="images/carousel/002.jpg" alt="">
 	... image list goes here
 </div>
 ```
@@ -25,11 +26,16 @@ $(function(){
 	$('#mkCarousel').mkCarousel();
 });
 ```
+
 #### Properties
 	* responsive: boolean | default = true
 	* breakpoint: int | default = 768
 	* offset: int | default = 100
 	* mobileOffset: int | default = 50
 	* controlNavs: boolean | default = true
+
+#### Live Examples
+	* [mk-3Dcarousel page](http://masoomulhaqs.github.io/mk-3Dcarousel/)
+
 #### Support
 In all major browsers, partial support in other browsers
