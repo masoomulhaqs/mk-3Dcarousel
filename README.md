@@ -27,12 +27,15 @@ $(function(){
 });
 ```
 
-#### Properties
-	* responsive: boolean | default = true
-	* breakpoint: int | default = 768
-	* offset: int | default = 100
-	* mobileOffset: int | default = 50
-	* controlNavs: boolean | default = true
+#### Properties & their usage
+| Property     	| Description                                           	| Type    	| Default value 	|
+|--------------	|-------------------------------------------------------	|---------	|---------------	|
+| responsive   	| Makes carousel responsive                             	| boolean 	| true          	|
+| breakpoint   	| A point from where it should take responsive handling 	| int     	| 768           	|
+| offset       	| Spacing between carousel images for desktop view      	| int     	| 100           	|
+| mobileOffset 	| Spacing between carousel images for mobile view       	| int     	| 50            	|
+| controlNavs  	| Show control navigation, ex: prev, next               	| boolean 	| true          	|
+| beginAt      	| Set an inital active image                            	| int     	| 1             	|
 
 #### Live Examples
 * [mk-3Dcarousel page](http://masoomulhaqs.github.io/mk-3Dcarousel/)

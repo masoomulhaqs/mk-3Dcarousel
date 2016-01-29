@@ -37,11 +37,15 @@
 			}
 			if(!$target.hasClass(defaults.activeClass)){
 				$target.eq(0).addClass(defaults.activeClass);
-			}
-			if(defaults.beginAt!=1){
+			}else{
 				$target.removeClass(defaults.activeClass);
-				$target.eq(defaults.beginAt-1).addClass(defaults.activeClass);	
+				if(defaults.beginAt>=1 && defaults.beginAt<=$target.length){
+					$target.eq(defaults.beginAt-1).addClass(defaults.activeClass);	
+				}else{
+					$target.eq(0).addClass(defaults.activeClass);
+				}
 			}
+			$(selector).show();
 		};
 		getIndex = function(){
 			for(i=0; i<=$target.length;i++){
@@ -82,8 +86,10 @@
 		$(window).resize(function(){
 			slideIt();
 		}).load(function(){
-			init();
-			slideIt();
+			if($target.length>0){
+				init();
+				slideIt();
+			}
 		});
 		if("onorientationchange" in window) {
 			window.addEventListener("orientationchange", function() {
@@ -99,7 +105,6 @@
 			event.preventDefault();
 			slideCount = getIndex();
 			if($(this).data('mk-direction') == 'prev'){
-				console.log('yep')
 				slideCount = slideCount>0?slideCount-1:slideCount;
 			}else{
 				slideCount = slideCount<$target.length-1?slideCount+1:slideCount;
