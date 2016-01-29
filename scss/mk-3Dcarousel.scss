@@ -53,13 +53,14 @@
 			a{
 				text-decoration: none;
 				text-transform: uppercase;
-				color: #fff;
+				color: #A0A0A0;
 				display: inline-block;
 				padding: 5px;
-				line-height: 1;
+				line-height: 1;    
+				border: 1px solid #A0A0A0;
 				@include transition(all 0.3s ease);
 				&:hover, &:focus, &:active{
-					background: #fff;
+					background: #A0A0A0;
 					color: #333;
 				}
 			}
