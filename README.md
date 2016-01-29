@@ -32,6 +32,14 @@ $(function(){
 
 
 ##### CUSTOMIZE
+```
+$(function(){
+	$('#mkCarousel').mkCarousel({
+		property-name: value
+		... custom configuration goes here
+	});
+});
+```
 | Property     	| Description                                            	| Type    	| Default value 	|
 |--------------	|--------------------------------------------------------	|---------	|---------------	|
 | responsive   	| Makes carousel responsive                              	| boolean 	| true          	|
