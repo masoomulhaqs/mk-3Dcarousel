@@ -1,6 +1,7 @@
 $(function(){
 	$('#mkCarousel').mkCarousel({
 		offset: 130,
-		mobileOffset: 60
+		mobileOffset: 60,
+		beginAt: 3
 	});
 });

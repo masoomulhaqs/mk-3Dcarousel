@@ -21,12 +21,12 @@
 				breakpoint: 768,
 				offset: 100,
 				mobileOffset: 50,
+				beginAt: 1,
 				leftClass: 'image-left',
 				rightClass: 'image-right',
 				activeClass: 'active',
 				controlNavs: true
 			}, settings);
-			console.log(defaults);
 			if(defaults.controlNavs){
 				$(selector).prepend('\
 					<ul class="mk-nav-controls">\
@@ -34,6 +34,13 @@
 					    <li><a href="#" data-mk-direction="next">Next</a></li>\
 					</ul>\
 				');
+			}
+			if(!$target.hasClass(defaults.activeClass)){
+				$target.eq(0).addClass(defaults.activeClass);
+			}
+			if(defaults.beginAt!=1){
+				$target.removeClass(defaults.activeClass);
+				$target.eq(defaults.beginAt-1).addClass(defaults.activeClass);	
 			}
 		};
 		getIndex = function(){
