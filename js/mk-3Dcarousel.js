@@ -42,6 +42,7 @@
 				$target.removeClass(defaults.activeClass);
 				$target.eq(defaults.beginAt-1).addClass(defaults.activeClass);	
 			}
+			$(selector).show();
 		};
 		getIndex = function(){
 			for(i=0; i<=$target.length;i++){
