@@ -14,17 +14,17 @@ Include the following:
 
 
 ##### HTML
-```
+```html
 <div class="mk-carousel" id="mkCarousel">
 	<img class="active" src="<your-path>/file-name.jpg" alt="">
 	<img src="<your-path>/file-name.jpg" alt="">
-	... image list goes here
+	<!-- ... image list goes here -->
 </div>
 ```
 
 
 ##### JS
-```
+```javascript
 $(function(){
 	$('#mkCarousel').mkCarousel();
 });
@@ -32,11 +32,11 @@ $(function(){
 
 
 ##### CUSTOMIZE
-```
+```javascript
 $(function(){
 	$('#mkCarousel').mkCarousel({
 		property-name: value
-		... custom configuration goes here
+		// ... custom configuration goes here
 	});
 });
 ```
