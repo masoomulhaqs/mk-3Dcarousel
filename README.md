@@ -14,7 +14,7 @@ Include the following:
 
 
 ##### HTML
-```
+```html
 <div class="mk-carousel" id="mkCarousel">
 	<img class="active" src="<your-path>/file-name.jpg" alt="">
 	<img src="<your-path>/file-name.jpg" alt="">
@@ -24,7 +24,7 @@ Include the following:
 
 
 ##### JS
-```
+```js
 $(function(){
 	$('#mkCarousel').mkCarousel();
 });
@@ -32,7 +32,7 @@ $(function(){
 
 
 ##### CUSTOMIZE
-```
+```js
 $(function(){
 	$('#mkCarousel').mkCarousel({
 		property-name: value
