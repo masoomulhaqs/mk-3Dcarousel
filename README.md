@@ -1,11 +1,6 @@
 # mk-3Dcarousel
 This is a responsive 3D Image Carousel created using JQUERY, CSS3.
 
-##### REQUIRED
-* JQuery
-* Browser from this list: IE 10+, Firefox 10+, Google Chrome 12+, Safari 9+, Android Browser 3+
-
-
 ##### STEPS TO USE
 Include the following:
   * `JQuery`
@@ -56,7 +51,7 @@ $(function(){
 
 
 ##### SUPPORT
-In all major browsers, partial support in other browsers
+IE 10+, Firefox 10+, Google Chrome 12+, Safari 9+, Android Browser 3+
 
 
 ##### NOTE
