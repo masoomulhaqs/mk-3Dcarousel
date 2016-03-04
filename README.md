@@ -3,7 +3,7 @@ This is a responsive 3D Image Carousel created using JQUERY, CSS3.
 
 ##### REQUIRED
 * JQuery
-* CSS3 supported browsers
+* Browser from this list: IE 10+, Firefox 43+, Google Chrome 46+, Safari 9+, Android Browser 4.3+
 
 
 ##### STEPS TO USE
