@@ -1,5 +1,5 @@
 # mk-3Dcarousel
-This is a 3D Image Carousel using JQUERY, CSS3.
+This is a responsive 3D Image Carousel created using JQUERY, CSS3.
 
 ##### REQUIRED
 * JQuery
