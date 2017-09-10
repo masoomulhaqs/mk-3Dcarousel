@@ -1,6 +1,6 @@
 {
   "name": "mk-3dcarousel",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Simple 3D & Responsive Image Carousel",
   "main": "gulpfile.js",
   "scripts": {
