@@ -14,7 +14,7 @@ Install jQuery
 Install mk-3Dcarousel
 ```shell
 
-  $ npm install --save mk-3Dcarousel
+  $ npm install --save mk-3dcarousel
 
 ```
 
