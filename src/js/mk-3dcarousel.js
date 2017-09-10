@@ -1,21 +1,21 @@
 (function ( $ ) {
 
 
-	$.fn.mkCarousel = function(settings){
+	$.fn.mkCarousel = function(settings) {
 		var selector = this.selector,
 			target = this.selector+'>img',
-			$target = $(target), 
+			$target = $(target),
 			controlSelector = '.mk-nav-controls>li>a',
 			$controlSelector = $(controlSelector),
-			leftMargin =0,
-			slideIt = null, 
+			leftMargin = 0,
+			slideIt = null,
 			getIndex = null,
 			init= null,
-			offset = 0, 
+			offset = 0,
 			activeIndex = 0,
 			defaults = {},
 			slideCount = 0;
-		init = function(){
+		init = function() {
 			defaults = $.extend({
 				responsive: true,
 				breakpoint: 768,
@@ -25,36 +25,38 @@
 				leftClass: 'image-left',
 				rightClass: 'image-right',
 				activeClass: 'active',
-				controlNavs: true
+				controlNavs: true,
+				prevText: 'Prev',
+				nextText: 'Next'
 			}, settings);
-			if(defaults.controlNavs){
+			if(defaults.controlNavs) {
 				$(selector).prepend('\
 					<ul class="mk-nav-controls">\
-					    <li><a href="#" data-mk-direction="prev">Prev</a></li>\
-					    <li><a href="#" data-mk-direction="next">Next</a></li>\
+					    <li><a href="javascript:void(0)" data-mk-direction="prev">'+ defaults.prevText +'</a></li>\
+					    <li><a href="javascript:void(0)" data-mk-direction="next">'+ defaults.nextText +'</a></li>\
 					</ul>\
 				');
 			}
-			if(!$target.hasClass(defaults.activeClass)){
+			if(!$target.hasClass(defaults.activeClass)) {
 				$target.eq(0).addClass(defaults.activeClass);
-			}else{
+			}else {
 				$target.removeClass(defaults.activeClass);
-				if(defaults.beginAt>=1 && defaults.beginAt<=$target.length){
-					$target.eq(defaults.beginAt-1).addClass(defaults.activeClass);	
-				}else{
+				if(defaults.beginAt>=1 && defaults.beginAt<=$target.length) {
+					$target.eq(defaults.beginAt-1).addClass(defaults.activeClass);
+				}else {
 					$target.eq(0).addClass(defaults.activeClass);
 				}
 			}
 			$(selector).show();
 		};
-		getIndex = function(){
+		getIndex = function() {
 			for(i=0; i<=$target.length;i++){
 				if($target.eq(i).hasClass(defaults.activeClass)){
 					return i;
 				}
 			}
 		};
-		slideIt = function(thisIndex){
+		slideIt = function(thisIndex) {
 			offset = ($(window).outerWidth()>=defaults.breakpoint)?defaults.offset:defaults.mobileOffset;
 			leftMargin = 0;
 			activeIndex = thisIndex || getIndex();
@@ -63,29 +65,29 @@
 				'marginRight': '0px'
 			});
 			$(target+':lt('+activeIndex+')').addClass(defaults.leftClass);
-			if($target.eq(0).hasClass(defaults.activeClass)){
+			if($target.eq(0).hasClass(defaults.activeClass)) {
 				$target.eq(0).css({
 					'marginLeft': -($target.eq(0).outerWidth()/2) + 'px',
 					'marginRight': offset + 'px'
 				});
-			}else{
-		        for(i=0;i<activeIndex;i++){
+			} else {
+		        for(i=0;i<activeIndex;i++) {
 		          leftMargin = leftMargin + $target.eq(i).outerWidth();
 		        }
         		$target.eq(0).css('marginLeft', - (leftMargin + $(target+'.'+defaults.activeClass).outerWidth()/2 + offset) + 'px');
-		        $target.each(function(){
-		        	if($(this).hasClass(defaults.activeClass)){
+		        $target.each(function() {
+		        	if($(this).hasClass(defaults.activeClass)) {
 		        		$(this).css({
-							'marginLeft': offset + 'px',
+										'marginLeft': offset + 'px',
           					'marginRight': offset +'px'
 		        		});
 		        	}
 		        });
 			}
 		};
-		$(window).resize(function(){
+		$(window).resize(function() {
 			slideIt();
-		}).load(function(){
+		}).load(function() {
 			if($target.length>0){
 				init();
 				slideIt();
@@ -96,24 +98,24 @@
 				slideIt();
 			}, false);
 		}
-		$target.click(function(){
+		$target.click(function() {
 			$target.removeClass(defaults.activeClass);
 			$(this).addClass(defaults.activeClass);
 			slideIt();
 		});
-		$(selector).on('click', controlSelector,  function(event){
+		$(selector).on('click', controlSelector,  function(event) {
 			event.preventDefault();
 			slideCount = getIndex();
-			if($(this).data('mk-direction') == 'prev'){
+			if($(this).data('mk-direction') == 'prev') {
 				slideCount = slideCount>0?slideCount-1:slideCount;
-			}else{
+			} else {
 				slideCount = slideCount<$target.length-1?slideCount+1:slideCount;
 			}
 			$target.removeClass(defaults.activeClass);
 			$target.eq(slideCount).addClass(defaults.activeClass);
 			slideIt(slideCount);
 		});
-	}
+	};
 
- 
+
 }( jQuery ));
